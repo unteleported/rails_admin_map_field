@@ -1,11 +1,11 @@
 Rails Admin Map Field fork:
 - map resizing in config
-  ```
+```
   field :lat, :map do
     map_width '600px'
     map_height '400px'
   end
-  ```
+```
 
 - adds :latitude, :longitude live text fields below map
 =====================

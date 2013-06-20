@@ -8,6 +8,8 @@ end
 ```
 
 - adds :latitude, :longitude live text fields below map
+
+
 =====================
 
 rails_admin_map_field is a gem that works with sferik's **rails_admin** (https://github.com/sferik/rails_admin) to provide an easy to use Google Maps interface for displaying and setting geographic co-ordinates in a model.

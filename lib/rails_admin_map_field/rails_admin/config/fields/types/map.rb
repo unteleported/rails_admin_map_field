@@ -9,7 +9,19 @@ module RailsAdmin::Config::Fields::Types
     # THe name of the corresponding longitude field to match the latitude field
     # in this object.
     register_instance_option(:longitude_field) do
-      :longitude
+      "longitude"
+    end
+
+    register_instance_option(:address_field) do
+      "address"
+    end
+
+    register_instance_option(:city_field) do
+      "city"
+    end
+
+    register_instance_option(:state_field) do
+      "state"
     end
 
     register_instance_option(:partial) do
@@ -24,12 +36,12 @@ module RailsAdmin::Config::Fields::Types
     # Latitude value to display in the map if the latitude attribute is nil
     # (Otherwise the location defaults to (0,0) which is in the Gulf of Guinea
     register_instance_option(:default_latitude) do
-      51.5 # Latitude of London, United Kingdom
+      40.711417 # Latitude of Jersey City, NJ
     end
 
     # Longitude value to display if the longitude attribute is nil
     register_instance_option(:default_longitude) do
-      -0.126 # Longitude of London, United Kingdom
+      74.0647 # Longitude of Jersey City, NJ
     end
 
     # Default zoom level of the map
@@ -37,16 +49,39 @@ module RailsAdmin::Config::Fields::Types
       8
     end
 
+    # Google Maps API Key - optional
+    register_instance_option(:map_width) do
+      "300px"
+    end
+
+    # Google Maps API Key - optional
+    register_instance_option(:map_height) do
+      "200px"
+    end
+
+
     def dom_name
       @dom_name ||= "#{bindings[:form].object_name}_#{@name}_#{longitude_field}"
     end
 
     def latitude_dom_name
-      @lat_dom_name ||= "#{bindings[:form].object_name}_#{@name}"
+      "#{bindings[:form].object_name}_#{@name}"
     end
 
     def longitude_dom_name
       @lon_dom_name ||= "#{bindings[:form].object_name}_#{longitude_field}"
+    end
+
+    def address_dom_name
+      "#{bindings[:form].object_name}_#{address_field}"
+    end
+
+    def city_dom_name
+      "#{bindings[:form].object_name}_#{city_field}"
+    end
+
+    def state_dom_name
+      "#{bindings[:form].object_name}_#{state_field}"
     end
   end
 end
